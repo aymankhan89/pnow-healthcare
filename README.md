@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PNOW Healthcare
+
+Modern healthcare marketing site built with Next.js 16 (App Router), TypeScript, Tailwind CSS, and [shadcn/ui](https://ui.shadcn.com). The project ships with a pre-styled landing page, shared design tokens, and a growing UI kit so you can focus on product content instead of plumbing.
+
+## Stack
+
+- Next.js 16 + React 19 with the App Router
+- TypeScript with strict mode
+- Tailwind CSS 3.4 + PostCSS + CSS variables for theming
+- shadcn/ui components (Button, Badge, Card pre-installed) with `@/lib/utils` helper
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # install dependencies
+npm run dev        # start the local dev server on http://localhost:3000
+npm run lint       # run ESLint (core web vitals config)
+npm run build      # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The contact form posts directly to Airtable. Copy `.env.example` to `.env.local` and provide your credentials:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cp .env.example .env.local
+```
 
-## Learn More
+- `AIRTABLE_ACCESS_TOKEN` – personal access token with write access to your base.
+- `AIRTABLE_BASE_ID` – Airtable base ID (starts with `app`).
+- `AIRTABLE_CONTACT_TABLE` – table ID or name that contains the `First Name`, `Last Name`, `Email`, `Phone`, `Message`, and `Submitted At` columns.
 
-To learn more about Next.js, take a look at the following resources:
+Restart the dev server after updating environment variables so Next.js can pick them up.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Working with shadcn/ui
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Configuration lives in `components.json`. Tailwind tokens are defined in `tailwind.config.ts` and `src/app/globals.css`.
+- Generate additional components any time with:
 
-## Deploy on Vercel
+  ```bash
+  npx shadcn@latest add <component-name>
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Shared utilities such as `cn()` live in `src/lib/utils.ts`, and components render from `src/components/ui`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+- `src/app` – App Router routes, layouts, and global styles.
+- `src/components/ui` – shadcn/ui primitives you can compose into higher-level components.
+- `src/lib` – shared helpers.
+- `public` – static assets (favicons, illustrations, etc.).
+
+## Deployment
+
+The app works out of the box on Vercel or any Next.js-compatible host. Set `NEXT_TELEMETRY_DISABLED=1` if you prefer to disable telemetry in CI/CD.
