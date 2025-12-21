@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,9 +19,11 @@ export function ServicesHeroSection() {
         <div className="absolute left-0 bottom-0 h-72 w-72 rounded-full bg-cyan-500/25 blur-[110px]" />
         {/* Subtle background illustration */}
         <div className="absolute bottom-10 right-10 opacity-10">
-          <img
+          <Image
             src="/healthcare-team.svg"
             alt="Healthcare team background"
+            width={256}
+            height={256}
             className="h-64 w-auto"
           />
         </div>

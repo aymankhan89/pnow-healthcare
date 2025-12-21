@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { CheckCircle, ArrowRight, Clock, Shield, TrendingUp, Stethoscope, ClipboardCheck, Users2, LineChart } from "lucide-react";
 import type { Service } from "@/data/services-data";
 

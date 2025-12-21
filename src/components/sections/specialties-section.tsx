@@ -13,6 +13,21 @@ import { specialties } from "@/data/specialties";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 
+const specialtyParticles = [
+  { left: "12%", top: "18%", duration: 3.5, delay: 0.1 },
+  { left: "26%", top: "28%", duration: 3.9, delay: 0.25 },
+  { left: "42%", top: "16%", duration: 4.2, delay: 0.4 },
+  { left: "58%", top: "22%", duration: 3.7, delay: 0.55 },
+  { left: "72%", top: "18%", duration: 4.1, delay: 0.7 },
+  { left: "18%", top: "46%", duration: 3.6, delay: 0.2 },
+  { left: "34%", top: "54%", duration: 4.3, delay: 0.35 },
+  { left: "52%", top: "48%", duration: 3.8, delay: 0.5 },
+  { left: "70%", top: "52%", duration: 4.4, delay: 0.65 },
+  { left: "16%", top: "74%", duration: 3.9, delay: 0.3 },
+  { left: "38%", top: "80%", duration: 4.1, delay: 0.45 },
+  { left: "64%", top: "76%", duration: 3.7, delay: 0.6 },
+];
+
 export function SpecialtiesSection() {
   return (
     <AnimatedSection
@@ -44,22 +59,22 @@ export function SpecialtiesSection() {
       </div>
 
       {/* Floating Particles */}
-      {[...Array(12)].map((_, i) => (
+      {specialtyParticles.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute h-1 w-1 rounded-full bg-blue-400/30"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: particle.left,
+            top: particle.top,
           }}
           animate={{
             y: [0, -20, 0],
             opacity: [0, 0.8, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: particle.delay,
           }}
         />
       ))}

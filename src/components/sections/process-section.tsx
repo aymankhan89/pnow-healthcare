@@ -9,9 +9,6 @@ import { motion } from "framer-motion";
 import { processSteps } from "@/data/process";
 
 export function ProcessSection() {
-  const leftSteps = processSteps.filter((step) => step.side === "left");
-  const rightSteps = processSteps.filter((step) => step.side === "right");
-
   return (
     <AnimatedSection
       id="process"

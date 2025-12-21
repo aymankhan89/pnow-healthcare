@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
@@ -33,9 +34,11 @@ export function ProcessHeroSection() {
           animate={fade.show}
           transition={{ delay: 0.2 }}
         >
-          <img
+          <Image
             src="/medical-coding-workflow.svg"
             alt="Medical coding workflow process"
+            width={480}
+            height={320}
             className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg"
           />
         </motion.div>

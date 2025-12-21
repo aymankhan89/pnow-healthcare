@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Sparkles, UsersRound } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -81,9 +82,11 @@ export function AboutHeroSection() {
           <div className="relative space-y-6">
             {/* Team Image */}
             <div className="flex justify-center">
-              <img
+              <Image
                 src="/healthcare-team.svg"
                 alt="Professional healthcare coding team"
+                width={256}
+                height={128}
                 className="h-32 w-auto rounded-lg bg-white/10 p-4 backdrop-blur-sm"
               />
             </div>

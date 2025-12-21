@@ -5,11 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { baaSteps } from "@/data/compliance";
 
-const fade = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0 },
-};
-
 export function ComplianceBaaSection() {
   return (
     <section className="bg-gradient-to-b from-slate-50 to-white py-16 lg:py-24">

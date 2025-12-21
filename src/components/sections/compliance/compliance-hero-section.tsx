@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Lock, ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { complianceSections } from "@/data/compliance";
 
 const fade = {
   hidden: { opacity: 0, y: 18 },
@@ -64,9 +64,11 @@ export function ComplianceHeroSection() {
           <div className="relative flex h-full flex-col justify-center gap-4">
             {/* Security Shield Image */}
             <div className="flex justify-center mb-4">
-              <img
+              <Image
                 src="/security-shield.svg"
                 alt="HIPAA compliance and data security illustration"
+                width={200}
+                height={128}
                 className="h-32 w-auto"
               />
             </div>

@@ -1,10 +1,3 @@
-import {
-  ClipboardCheck,
-  LineChart,
-  Stethoscope,
-  Users2,
-} from "lucide-react";
-
 export interface Service {
   id: string;
   slug: string;

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
@@ -39,9 +40,11 @@ export function ContactHeroSection() {
           animate={fade.show}
           transition={{ delay: 0.2 }}
         >
-          <img
+          <Image
             src="/contact-office.svg"
             alt="Professional contact and support illustration"
+            width={480}
+            height={320}
             className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg"
           />
         </motion.div>

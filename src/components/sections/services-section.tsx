@@ -116,7 +116,7 @@ export function ServicesSection() {
             viewport={{ once: true }}
           >
             {["HIPAA Compliant", "99.9% Accuracy", "24/7 Support"].map(
-              (item, i) => (
+              (item) => (
                 <div
                   key={item}
                   className="flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 shadow-sm"

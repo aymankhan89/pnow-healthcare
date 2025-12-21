@@ -6,6 +6,24 @@ import { footerColumns, contactItems, socialLinks } from "@/data/footer";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
+const footerParticles = [
+  { left: "8%", top: "18%", duration: 3.6, delay: 0.1 },
+  { left: "22%", top: "30%", duration: 4.0, delay: 0.25 },
+  { left: "36%", top: "16%", duration: 3.8, delay: 0.4 },
+  { left: "52%", top: "26%", duration: 4.2, delay: 0.55 },
+  { left: "68%", top: "18%", duration: 3.9, delay: 0.7 },
+  { left: "82%", top: "28%", duration: 4.1, delay: 0.85 },
+  { left: "14%", top: "52%", duration: 3.7, delay: 0.2 },
+  { left: "32%", top: "60%", duration: 4.3, delay: 0.35 },
+  { left: "50%", top: "56%", duration: 3.9, delay: 0.5 },
+  { left: "66%", top: "64%", duration: 4.4, delay: 0.65 },
+  { left: "82%", top: "58%", duration: 3.8, delay: 0.8 },
+  { left: "18%", top: "78%", duration: 4.2, delay: 0.3 },
+  { left: "38%", top: "84%", duration: 3.9, delay: 0.45 },
+  { left: "58%", top: "80%", duration: 4.1, delay: 0.6 },
+  { left: "78%", top: "86%", duration: 3.7, delay: 0.75 },
+];
+
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-blue-400/30 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
@@ -34,22 +52,22 @@ export function SiteFooter() {
       </div>
 
       {/* Floating Particles */}
-      {[...Array(15)].map((_, i) => (
+      {footerParticles.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute h-1 w-1 rounded-full bg-blue-400/30"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: particle.left,
+            top: particle.top,
           }}
           animate={{
             y: [0, -20, 0],
             opacity: [0, 0.8, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: particle.delay,
           }}
         />
       ))}

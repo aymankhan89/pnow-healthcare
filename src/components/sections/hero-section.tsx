@@ -4,19 +4,34 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  BarChart3,
-  CheckCircle2,
-  Shield,
-  Sparkles,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, BarChart3, Sparkles } from "lucide-react";
 import { heroStats, heroMetrics, floatingIcons } from "@/data/hero";
+
+const heroParticles = [
+  { left: "8%", top: "18%", duration: 3.6, delay: 0.1 },
+  { left: "18%", top: "32%", duration: 4.1, delay: 0.2 },
+  { left: "28%", top: "12%", duration: 3.4, delay: 0.35 },
+  { left: "38%", top: "26%", duration: 4.6, delay: 0.5 },
+  { left: "48%", top: "16%", duration: 3.8, delay: 0.65 },
+  { left: "58%", top: "30%", duration: 4.2, delay: 0.8 },
+  { left: "68%", top: "14%", duration: 3.5, delay: 0.95 },
+  { left: "78%", top: "26%", duration: 4.4, delay: 1.1 },
+  { left: "12%", top: "52%", duration: 3.9, delay: 0.25 },
+  { left: "24%", top: "62%", duration: 4.3, delay: 0.4 },
+  { left: "36%", top: "58%", duration: 3.7, delay: 0.55 },
+  { left: "48%", top: "68%", duration: 4.5, delay: 0.7 },
+  { left: "60%", top: "56%", duration: 3.6, delay: 0.85 },
+  { left: "72%", top: "66%", duration: 4.1, delay: 1.0 },
+  { left: "84%", top: "54%", duration: 3.8, delay: 1.15 },
+  { left: "16%", top: "78%", duration: 4.2, delay: 0.3 },
+  { left: "32%", top: "84%", duration: 3.9, delay: 0.45 },
+  { left: "52%", top: "82%", duration: 4.4, delay: 0.6 },
+  { left: "68%", top: "86%", duration: 3.7, delay: 0.75 },
+  { left: "84%", top: "80%", duration: 4.1, delay: 0.9 },
+];
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -25,13 +40,10 @@ export default function HeroSection() {
         y: (e.clientY / window.innerHeight - 0.5) * 30,
       });
     };
-    const handleScroll = () => setScrollY(window.scrollY);
 
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -71,22 +83,22 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
+      {heroParticles.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute h-1 w-1 rounded-full bg-blue-400/40"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: particle.left,
+            top: particle.top,
           }}
           animate={{
             y: [0, -30, 0],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: particle.delay,
           }}
         />
       ))}
