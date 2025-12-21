@@ -63,3 +63,10 @@ export const coreValues = [
       "We operate as an embedded extension of your revenue cycle team, aligning incentives around measurable reimbursement improvements.",
   },
 ];
+
+export const aboutHeroStats = [
+  { label: "Certified Coders", value: "300+" },
+  { label: "Avg. Accuracy", value: "99.8%" },
+  { label: "US Coverage", value: "24/7" },
+  { label: "Years Serving", value: "15+" },
+] as const;

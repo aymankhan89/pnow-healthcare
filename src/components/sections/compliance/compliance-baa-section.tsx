@@ -7,7 +7,7 @@ import { baaSteps } from "@/data/compliance";
 
 const fade = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0 },
 };
 
 export function ComplianceBaaSection() {
@@ -16,9 +16,8 @@ export function ComplianceBaaSection() {
       <div className="container grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <motion.div
           className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl"
-          variants={fade}
-          initial="hidden"
-          whileInView="show"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.45 } }}
         >
           <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-blue-50" />
           <div className="absolute inset-0 flex items-center justify-center">

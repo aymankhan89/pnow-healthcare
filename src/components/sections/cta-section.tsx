@@ -3,6 +3,7 @@ import { fadeInUp } from "@/components/animations/motion-config";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { ctaContent } from "@/data/cta";
 
 export function CtaSection() {
   return (
@@ -15,20 +16,18 @@ export function CtaSection() {
         variants={fadeInUp}
       >
         <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-          Ready to Transform Your Revenue Cycle?
+          {ctaContent.title}
         </h2>
         <p className="text-base text-slate-600 lg:max-w-3xl">
-          Experience the difference certified coding expertise, unwavering compliance, and dedicated
-          support can make for your healthcare organization. Schedule a consultation to discuss your
-          specific needs and discover how our services can optimize your revenue cycle.
+          {ctaContent.description}
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
           <Button size="lg" className="gap-2 animate-pressable bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
-            Schedule Your Free Consultation
+            {ctaContent.primaryButton.text}
             <ArrowRight className="size-4" />
           </Button>
           <Button size="lg" variant="outline" className="animate-pressable border-slate-300 text-slate-700">
-            Request a Custom Proposal
+            {ctaContent.secondaryButton.text}
           </Button>
         </div>
       </motion.div>

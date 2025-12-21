@@ -6,7 +6,7 @@ import { navLinks } from "@/data/navigation";
 
 export default function SiteNavbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [openMenu, setOpenMenu] = useState(null);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -104,81 +104,86 @@ export default function SiteNavbar() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1 flex-1 justify-center">
               {navLinks.map((link) => (
-                <div
-                  key={link.label}
-                  className="relative"
-                  onMouseEnter={() => link.children && setOpenMenu(link.label)}
-                  onMouseLeave={() => setOpenMenu(null)}
-                >
+                link.children ? (
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenMenu(link.label)}
+                    onMouseLeave={() => setOpenMenu(null)}
+                  >
+                    <a
+                      href={link.href}
+                      className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 whitespace-nowrap"
+                    >
+                      {link.label}
+                      <ChevronDown className="w-4 h-4" />
+                    </a>
+                    {openMenu === link.label && (
+                      <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                        {link.children.map((child) => (
+                          <a
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                          >
+                            {child.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
                   <a
+                    key={link.label}
                     href={link.href}
                     className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 whitespace-nowrap"
                   >
                     {link.label}
-                    {link.children && (
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          openMenu === link.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
                   </a>
-
-                  {/* Dropdown Menu */}
-                  {link.children && openMenu === link.label && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                      {link.children.map((child) => (
-                        <a
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                        >
-                          {child.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                )
               ))}
             </div>
 
             {/* Tablet Navigation (md to lg) */}
             <div className="hidden md:flex lg:hidden items-center gap-1 flex-1 justify-center">
               {navLinks.slice(0, 3).map((link) => (
-                <div
-                  key={link.label}
-                  className="relative"
-                  onMouseEnter={() => link.children && setOpenMenu(link.label)}
-                  onMouseLeave={() => setOpenMenu(null)}
-                >
+                link.children ? (
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenMenu(link.label)}
+                    onMouseLeave={() => setOpenMenu(null)}
+                  >
+                    <a
+                      href={link.href}
+                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200"
+                    >
+                      {link.label}
+                      <ChevronDown className="w-3 h-3" />
+                    </a>
+                    {openMenu === link.label && (
+                      <div className="absolute top-full left-0 w-44 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                        {link.children.map((child) => (
+                          <a
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                          >
+                            {child.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
                   <a
+                    key={link.label}
                     href={link.href}
                     className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200"
                   >
                     {link.label}
-                    {link.children && (
-                      <ChevronDown
-                        className={`w-3 h-3 transition-transform duration-200 ${
-                          openMenu === link.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
                   </a>
-
-                  {link.children && openMenu === link.label && (
-                    <div className="absolute top-full left-0 mt-2 w-44 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                      {link.children.map((child) => (
-                        <a
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                        >
-                          {child.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                )
               ))}
               <button className="px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
                 More

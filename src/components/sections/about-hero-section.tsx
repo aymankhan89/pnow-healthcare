@@ -4,13 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Sparkles, UsersRound } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
-const stats = [
-  { label: "Certified Coders", value: "300+" },
-  { label: "Avg. Accuracy", value: "99.8%" },
-  { label: "US Coverage", value: "24/7" },
-  { label: "Years Serving", value: "15+" },
-] as const;
+import { aboutHeroStats } from "@/data/about";
 
 export function AboutHeroSection() {
   return (
@@ -60,7 +54,7 @@ export function AboutHeroSection() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((item, i) => (
+            {aboutHeroStats.map((item, i) => (
               <motion.div
                 key={item.label}
                 initial={{ opacity: 0, y: 18 }}
@@ -85,6 +79,15 @@ export function AboutHeroSection() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-cyan-500/10 to-purple-500/5 opacity-70" />
           <div className="relative space-y-6">
+            {/* Team Image */}
+            <div className="flex justify-center">
+              <img
+                src="/healthcare-team.svg"
+                alt="Professional healthcare coding team"
+                className="h-32 w-auto rounded-lg bg-white/10 p-4 backdrop-blur-sm"
+              />
+            </div>
+
             <div className="flex items-center gap-3">
               <div className="rounded-2xl bg-blue-500/20 p-3 text-blue-100 backdrop-blur">
                 <Shield className="h-5 w-5" />

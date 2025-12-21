@@ -1,0 +1,81 @@
+<!-- Medical coding workflow illustration -->
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="workflowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#workflowBg)"/>
+
+  <!-- Step 1: Document Review -->
+  <g transform="translate(50, 50)">
+    <circle cx="40" cy="40" r="35" fill="url(#stepGradient)"/>
+    <text x="40" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="bold">1</text>
+    <text x="40" y="85" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Document</text>
+    <text x="40" y="98" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Review</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M125 70 L155 70 L150 65 M155 70 L150 75" stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Step 2: Coding -->
+  <g transform="translate(170, 50)">
+    <circle cx="40" cy="40" r="35" fill="#10b981"/>
+    <text x="40" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2</text>
+    <text x="40" y="85" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Medical</text>
+    <text x="40" y="98" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Coding</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M245 70 L275 70 L270 65 M275 70 L270 75" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- Step 3: QA Review -->
+  <g transform="translate(290, 50)">
+    <circle cx="40" cy="40" r="35" fill="#f59e0b"/>
+    <text x="40" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3</text>
+    <text x="40" y="85" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">QA</text>
+    <text x="40" y="98" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Review</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <path d="M365 70 L395 70 L390 65 M395 70 L390 75" stroke="#6b7280" stroke-width="2" fill="none"/>
+
+  <!-- Step 4: Submission -->
+  <g transform="translate(410, 50)">
+    <circle cx="40" cy="40" r="35" fill="#ef4444"/>
+    <text x="40" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4</text>
+    <text x="40" y="85" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Claim</text>
+    <text x="40" y="98" text-anchor="middle" fill="#1e293b" font-size="11" font-weight="600">Submit</text>
+  </g>
+
+  <!-- Quality indicators -->
+  <g transform="translate(50, 150)">
+    <rect x="0" y="0" width="80" height="4" fill="#10b981" rx="2"/>
+    <rect x="0" y="8" width="60" height="4" fill="#10b981" rx="2"/>
+    <rect x="0" y="16" width="70" height="4" fill="#10b981" rx="2"/>
+    <text x="40" y="45" text-anchor="middle" fill="#1e293b" font-size="10" font-weight="600">99.8% Accuracy</text>
+  </g>
+
+  <g transform="translate(200, 150)">
+    <circle cx="15" cy="15" r="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <path d="M10 15 L12 17 L20 9" stroke="#3b82f6" stroke-width="2" fill="none"/>
+    <text x="40" y="20" fill="#1e293b" font-size="10" font-weight="600">HIPAA Compliant</text>
+  </g>
+
+  <g transform="translate(350, 150)">
+    <rect x="0" y="0" width="25" height="20" fill="#3b82f6" rx="2"/>
+    <rect x="5" y="5" width="15" height="3" fill="white" rx="1"/>
+    <rect x="5" y="10" width="10" height="3" fill="white" rx="1"/>
+    <text x="40" y="15" fill="#1e293b" font-size="10" font-weight="600">24/7 Monitoring</text>
+  </g>
+
+  <!-- Bottom workflow line -->
+  <line x1="50" y1="120" x2="450" y2="120" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="5,5"/>
+</svg>

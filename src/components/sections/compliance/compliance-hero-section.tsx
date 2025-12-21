@@ -8,7 +8,7 @@ import { complianceSections } from "@/data/compliance";
 
 const fade = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { opacity: 1, y: 0 },
 };
 
 export function ComplianceHeroSection() {
@@ -20,11 +20,11 @@ export function ComplianceHeroSection() {
         <div className="absolute left-0 bottom-0 h-72 w-72 rounded-full bg-cyan-500/25 blur-[110px]" />
       </div>
 
-      <div className="container relative grid gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-24">
+      <div className="container relative grid gap-12 pt-20 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:pt-32 lg:pb-24">
         <motion.div
           className="space-y-7"
           initial={fade.hidden}
-          animate={fade.show}
+          animate={{ opacity: 1, y: 0, transition: { duration: 0.45 } }}
         >
           <Badge className="w-fit border border-blue-400/40 bg-white/10 text-blue-100">
             HIPAA Compliance & Data Security
@@ -62,6 +62,15 @@ export function ComplianceHeroSection() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-purple-500/10 opacity-80" />
           <div className="relative flex h-full flex-col justify-center gap-4">
+            {/* Security Shield Image */}
+            <div className="flex justify-center mb-4">
+              <img
+                src="/security-shield.svg"
+                alt="HIPAA compliance and data security illustration"
+                className="h-32 w-auto"
+              />
+            </div>
+
             <div className="flex items-center gap-3 text-white">
               <div className="rounded-2xl bg-blue-500/30 p-3">
                 <Lock className="h-6 w-6" />

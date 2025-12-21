@@ -6,26 +6,26 @@ import { phiPractices } from "@/data/compliance";
 
 export function CompliancePhiSection() {
   return (
-    <section className="border-y border-slate-200 bg-slate-50 py-16 lg:py-24">
+    <section className="bg-slate-950 py-16 text-white lg:py-24">
       <div className="container space-y-8">
         <h3 className="text-3xl font-semibold md:text-4xl">Protected Health Information Handling Practices</h3>
-        <p className="text-slate-600 md:max-w-4xl">
+        <p className="text-slate-200/80 md:max-w-4xl">
           Minimum necessary standards enforced across secure, controlled environments with hardened systems and encrypted workflows.
         </p>
         <div className="grid gap-6 md:grid-cols-2">
           {phiPractices.map((item) => (
-            <Card key={item.title} className="border-slate-200 bg-white shadow-md">
+            <Card key={item.title} className="border-slate-800 bg-slate-900/70 text-slate-100 shadow-md">
               <CardHeader className="space-y-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">{item.title}</CardTitle>
-                  <Shield className="h-5 w-5 text-slate-500" />
+                  <Shield className="h-5 w-5 text-slate-400" />
                 </div>
-                <CardDescription className="text-slate-600">{item.description}</CardDescription>
+                <CardDescription className="text-slate-200/80">{item.description}</CardDescription>
               </CardHeader>
             </Card>
           ))}
         </div>
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-slate-200/80">
           Workforce members follow zero-tolerance policies for unauthorized PHI use or disclosure, with comprehensive monitoring and corrective action
           for any deviation.
         </p>
