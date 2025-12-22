@@ -13,10 +13,10 @@ export const footerColumns = [
   {
     heading: "Expertise",
     links: [
-      { label: "Hospital Systems", href: "/about" },
-      { label: "Ambulatory & Clinics", href: "/services#medical-coding" },
-      { label: "Specialty Partners", href: "/about" },
-      { label: "Telehealth Coding", href: "/services#medical-coding" },
+      { label: "E/M Coding (Office & Clinic Visits)", href: "/services" },
+      { label: "Emergency Department (ED) Coding", href: "/services" },
+      { label: "HCC & Risk Adjustment Coding", href: "/services" },
+      { label: "Radiology Coding", href: "/services" },
     ],
   },
   {
