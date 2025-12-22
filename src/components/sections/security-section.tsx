@@ -130,15 +130,10 @@ export function SecuritySection() {
                 <div className="absolute inset-[1px] rounded-lg bg-white" />
 
                 <CardHeader className="relative z-10 space-y-3">
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="relative">
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-70" />
-                      <column.icon className="relative size-12 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 p-2.5 text-blue-600 shadow-sm transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg" />
-                    </div>
-                  </motion.div>
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-70" />
+                    <column.icon className="relative size-12 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 p-2.5 text-blue-600 shadow-sm transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-lg" />
+                  </div>
                   <CardTitle className="text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600">
                     {column.title}
                   </CardTitle>

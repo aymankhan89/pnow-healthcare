@@ -1,7 +1,6 @@
 import { BarChart3, CheckCircle2, Shield, Zap } from "lucide-react";
 
 export const heroStats = [
-  { label: "Healthcare Providers", value: "1,200+" },
   { label: "Coding Accuracy", value: "99.8%" },
   { label: "Average TAT", value: "24hrs" },
   { label: "Years Experience", value: "15+" },

@@ -298,7 +298,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 gap-4 rounded-3xl border border-blue-400/30 bg-white/5 backdrop-blur-2xl p-6 shadow-2xl md:grid-cols-4"
+            className="grid grid-cols-2 gap-4 rounded-3xl border border-blue-400/30 bg-white/5 backdrop-blur-2xl p-6 shadow-2xl md:grid-cols-3"
           >
             {heroStats.map((stat, i) => (
               <motion.div
@@ -369,18 +369,10 @@ export default function HeroSection() {
 
           <div className="flex items-start gap-4 relative z-10">
             <motion.div
-              className="rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 p-4 text-blue-300 backdrop-blur-xl border border-blue-400/30"
-              animate={
-                allowContinuousMotion ? { rotate: [0, 5, 0, -5, 0] } : undefined
-              }
-              transition={
-                allowContinuousMotion
-                  ? { duration: 5, repeat: Infinity }
-                  : undefined
-              }
-            >
-              <BarChart3 className="h-7 w-7" />
-            </motion.div>
+            className="rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 p-4 text-blue-300 backdrop-blur-xl border border-blue-400/30"
+          >
+            <BarChart3 className="h-7 w-7" />
+          </motion.div>
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80 font-semibold">
                 Live command center
@@ -410,21 +402,7 @@ export default function HeroSection() {
                   <div className="text-xs uppercase tracking-widest text-cyan-300/70 font-semibold">
                     {metric.label}
                   </div>
-                  <motion.div
-                    className="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mt-2"
-                    animate={
-                      allowContinuousMotion ? { scale: [1, 1.02, 1] } : undefined
-                    }
-                    transition={
-                      allowContinuousMotion
-                        ? {
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.3,
-                          }
-                        : undefined
-                    }
-                  >
+                  <motion.div className="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mt-2">
                     {metric.value}
                   </motion.div>
                   <p className="text-sm text-blue-200/70 mt-1">
