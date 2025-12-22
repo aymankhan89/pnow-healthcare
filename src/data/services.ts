@@ -1,33 +1,28 @@
-import {
-  ClipboardCheck,
-  LineChart,
-  Stethoscope,
-  Users2,
-} from "lucide-react";
+import { Activity, LineChart, Scan, Stethoscope } from "lucide-react";
 
 export const coreServices = [
   {
-    title: "Medical Coding",
+    title: "E/M Coding (Office & Clinic Visits)",
     description:
-      "Accurate ICD-10, CPT, and HCPCS coding by AAPC and AHIMA-certified professionals ensuring maximum reimbursement and minimal denials.",
+      "Precise MDM or time-based E/M level selection for office and clinic visits with specialty-specific expertise.",
     icon: Stethoscope,
   },
   {
-    title: "Coding Audits & QA",
+    title: "Emergency Department (ED) Coding",
     description:
-      "Comprehensive audit services that identify gaps, reduce compliance risk, and optimize coding accuracy across all specialties.",
-    icon: ClipboardCheck,
+      "High-acuity ED encounters coded with accurate CPT, ICD-10-CM, and compliant E/M levels at rapid turnaround.",
+    icon: Activity,
   },
   {
-    title: "Dedicated Coding Teams",
+    title: "HCC & Risk Adjustment Coding",
     description:
-      "Scalable teams fully integrated into your workflow, providing consistent quality, proactive communication, and fast turnaround times.",
-    icon: Users2,
-  },
-  {
-    title: "Revenue Cycle Support",
-    description:
-      "End-to-end RCM support including charge capture, claims submission, denial management, and AR follow-up for improved cash flow.",
+      "Compliant HCC capture that protects RAF scores, ensures audit readiness, and reflects true patient complexity.",
     icon: LineChart,
+  },
+  {
+    title: "Radiology Coding",
+    description:
+      "Diagnostic and interventional radiology coding with precise modifier use, bundling checks, and payer-specific compliance.",
+    icon: Scan,
   },
 ] as const;

@@ -29,13 +29,16 @@ export function ServicesMedicalCodingSection() {
           whileInView={fade.show}
           viewport={{ once: true }}
         >
-          <Badge variant="secondary" className="mb-4">Medical Coding</Badge>
+          <Badge variant="secondary" className="mb-4">
+            Medical Coding
+          </Badge>
           <h2 className="mb-6 text-3xl font-semibold text-slate-900 lg:text-4xl">
             Precision coding that maximizes reimbursement and minimizes risk.
           </h2>
           <p className="text-lg text-slate-600">
-            Our certified coders combine deep clinical knowledge with payer-specific
-            expertise to ensure every claim is coded correctly the first time.
+            Our certified coders combine deep clinical knowledge with
+            payer-specific expertise to ensure every claim is coded correctly
+            the first time.
           </p>
         </motion.div>
 
@@ -69,7 +72,7 @@ export function ServicesMedicalCodingSection() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100">
                   <Clock className="h-6 w-6 text-green-600" />
                 </div>
-                <CardTitle className="text-lg">24-48 Hour Turnaround</CardTitle>
+                <CardTitle className="text-lg">12 Hour Turnaround</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
@@ -90,8 +93,8 @@ export function ServicesMedicalCodingSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600">
-                  End-to-end encryption and secure workflows protect patient data
-                  at every step.
+                  End-to-end encryption and secure workflows protect patient
+                  data at every step.
                 </p>
               </CardContent>
             </Card>

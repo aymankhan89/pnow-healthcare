@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Stethoscope, ClipboardCheck, Users2, LineChart } from "lucide-react";
+import { ArrowRight, Activity, LineChart, Scan, Stethoscope } from "lucide-react";
 import { servicesData } from "@/data/services-data";
 
 const fade = {
@@ -23,10 +23,10 @@ const stagger = {
 };
 
 const iconMap = {
-  Stethoscope,
-  ClipboardCheck,
-  Users2,
+  Activity,
   LineChart,
+  Scan,
+  Stethoscope,
 };
 
 export function ServicesAllServicesSection() {

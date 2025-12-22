@@ -120,12 +120,12 @@ export default function SiteNavbar() {
                       <ChevronDown className="w-4 h-4" />
                     </Link>
                     {openMenu === link.label && (
-                      <div className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute top-full left-0 min-w-[15rem] bg-white rounded-xl shadow-2xl border border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                         {link.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="block px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                            className="block px-4 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-normal"
                           >
                             {child.label}
                           </Link>
@@ -193,9 +193,12 @@ export default function SiteNavbar() {
 
             {/* CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
-              <button className="px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200">
+              <Link
+                href="/contact"
+                className="px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
 
             {/* CTA Buttons - Tablet */}
@@ -203,9 +206,12 @@ export default function SiteNavbar() {
               <button className="px-3 py-2 text-xs font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200">
                 Sign In
               </button>
-              <button className="px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200">
+              <Link
+                href="/contact"
+                className="px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -271,9 +277,13 @@ export default function SiteNavbar() {
                   <button className="w-full px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-all">
                     Sign In
                   </button>
-                  <button className="w-full px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:shadow-lg transition-all">
+                  <Link
+                    href="/contact"
+                    className="w-full px-4 py-2.5 text-sm font-semibold text-white text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:shadow-lg transition-all"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     Get Started
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
