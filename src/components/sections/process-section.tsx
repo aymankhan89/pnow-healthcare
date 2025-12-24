@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AnimatedSection } from "@/components/animations/animated-section";
 import { useMotionPreference } from "@/components/animations/use-motion-preference";
 import { fadeInUp } from "@/components/animations/motion-config";
@@ -323,11 +324,16 @@ export function ProcessSection() {
           viewport={{ once: true }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button className="group relative overflow-hidden px-8 py-6 text-base font-semibold shadow-lg transition-all duration-300 hover:shadow-2xl">
-              <span className="relative z-10 flex items-center gap-2">
-                Schedule Your Free Consultation
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
+            <Button
+              className="group relative overflow-hidden px-8 py-6 text-base font-semibold shadow-lg transition-all duration-300 hover:shadow-2xl"
+              asChild
+            >
+              <Link href="/contact">
+                <span className="relative z-10 flex items-center gap-2">
+                  Schedule Your Free Consultation
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </Link>
             </Button>
           </motion.div>
 
@@ -335,8 +341,9 @@ export function ProcessSection() {
             <Button
               variant="outline"
               className="border border-white/40 bg-white/10 text-white hover:bg-white/20 px-8 py-6 text-base font-semibold shadow-md backdrop-blur transition-colors duration-300"
+              asChild
             >
-              Request a Custom Proposal
+              <Link href="/contact">Request a Custom Proposal</Link>
             </Button>
           </motion.div>
         </motion.div>

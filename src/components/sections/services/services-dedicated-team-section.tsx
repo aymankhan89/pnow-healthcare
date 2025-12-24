@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -94,8 +95,8 @@ export function ServicesDedicatedTeamSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <Button className="px-8 py-4 text-lg font-semibold shadow-lg">
-            Schedule Team Introduction
+          <Button className="px-8 py-4 text-lg font-semibold shadow-lg" asChild>
+            <Link href="/contact">Schedule Team Introduction</Link>
           </Button>
         </motion.div>
       </div>

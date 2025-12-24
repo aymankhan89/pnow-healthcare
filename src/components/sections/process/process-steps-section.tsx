@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { onboardingJourney } from "@/data/process-detail";
@@ -44,9 +45,11 @@ export function ProcessStepsSection() {
         </div>
       </div>
       <div className="flex flex-wrap gap-3 pt-4">
-        <Button className="animate-pressable">Schedule a Discovery Call</Button>
-        <Button variant="outline" className="animate-pressable">
-          Download Process Blueprint
+        <Button className="animate-pressable" asChild>
+          <Link href="/contact">Schedule a Discovery Call</Link>
+        </Button>
+        <Button variant="outline" className="animate-pressable" asChild>
+          <Link href="/process">Download Process Blueprint</Link>
         </Button>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AnimatedSection } from "@/components/animations/animated-section";
 import { fadeInUp } from "@/components/animations/motion-config";
 import { Button } from "@/components/ui/button";
@@ -22,12 +23,14 @@ export function CtaSection() {
           {ctaContent.description}
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-          <Button size="lg" className="gap-2 animate-pressable shadow">
-            {ctaContent.primaryButton.text}
-            <ArrowRight className="size-4" />
+          <Button size="lg" className="gap-2 animate-pressable shadow" asChild>
+            <Link href="/contact">
+              {ctaContent.primaryButton.text}
+              <ArrowRight className="size-4" />
+            </Link>
           </Button>
-          <Button size="lg" variant="outline" className="animate-pressable">
-            {ctaContent.secondaryButton.text}
+          <Button size="lg" variant="outline" className="animate-pressable" asChild>
+            <Link href="/services">{ctaContent.secondaryButton.text}</Link>
           </Button>
         </div>
       </motion.div>

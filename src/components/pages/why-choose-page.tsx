@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -101,26 +102,29 @@ export function WhyChooseUsPage() {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap gap-4 pt-2"
-              initial={fade.hidden}
-              animate={fade.show}
-              transition={{ delay: 0.2 }}
-            >
-              <Button className="group relative overflow-hidden px-7 py-4 text-base font-semibold shadow-2xl shadow-blue-500/40">
+            className="flex flex-wrap gap-4 pt-2"
+            initial={fade.hidden}
+            animate={fade.show}
+            transition={{ delay: 0.2 }}
+          >
+            <Button className="group relative overflow-hidden px-7 py-4 text-base font-semibold shadow-2xl shadow-blue-500/40" asChild>
+              <Link href="/contact">
                 <span className="relative z-10 flex items-center gap-2">
                   Get a Free Consultation
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 transition-opacity group-hover:opacity-100" />
-              </Button>
-              <Button
-                variant="outline"
-                className="border border-white/30 bg-white/10 px-7 py-4 text-base font-semibold text-white shadow-xl backdrop-blur transition hover:border-white/50 hover:bg-white/15 hover:text-white"
-              >
-                Review our approach
-              </Button>
-            </motion.div>
-          </div>
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              asChild
+              className="border border-white/30 bg-white/10 px-7 py-4 text-base font-semibold text-white shadow-xl backdrop-blur transition hover:border-white/50 hover:bg-white/15 hover:text-white"
+            >
+              <Link href="/why-choose-us#faqs">Review our approach</Link>
+            </Button>
+          </motion.div>
+        </div>
 
           <motion.div
             className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-8 shadow-2xl backdrop-blur-xl"
@@ -303,9 +307,11 @@ export function WhyChooseUsPage() {
               <p>{contactInfo.businessHours}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button className="animate-pressable">Get a Free Consultation</Button>
-              <Button variant="outline" className="animate-pressable">
-                Book a Call
+              <Button className="animate-pressable" asChild>
+                <Link href="/contact">Get a Free Consultation</Link>
+              </Button>
+              <Button variant="outline" className="animate-pressable" asChild>
+                <Link href="/contact">Book a Call</Link>
               </Button>
             </div>
           </motion.div>

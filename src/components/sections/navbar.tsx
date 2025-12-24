@@ -163,8 +163,8 @@ export default function SiteNavbar() {
                   </Link>
                 )
               ))}
-              <Button className="h-auto px-3 py-2 text-sm font-medium shadow-sm">
-                More
+              <Button className="h-auto px-3 py-2 text-sm font-medium shadow-sm" asChild>
+                <Link href="/services">More</Link>
               </Button>
             </div>
 
@@ -180,8 +180,8 @@ export default function SiteNavbar() {
 
             {/* CTA Buttons - Tablet */}
             <div className="hidden md:flex lg:hidden items-center gap-2 shrink-0">
-              <Button className="h-auto px-3 py-2 text-xs font-medium shadow-sm">
-                Sign In
+              <Button className="h-auto px-3 py-2 text-xs font-medium shadow-sm" asChild>
+                <Link href="/contact">Sign In</Link>
               </Button>
               <Button
                 asChild
@@ -251,8 +251,10 @@ export default function SiteNavbar() {
                   </div>
                 ))}
                 <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-gray-200">
-                  <Button className="h-auto w-full px-4 py-2.5 text-sm font-medium">
-                    Sign In
+                  <Button className="h-auto w-full px-4 py-2.5 text-sm font-medium" asChild>
+                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                      Sign In
+                    </Link>
                   </Button>
                   <Button
                     asChild

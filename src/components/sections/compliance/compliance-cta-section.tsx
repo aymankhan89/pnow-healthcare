@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, ClipboardCheck, FileCheck2, FileKey2, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -19,11 +20,13 @@ export function ComplianceCtaSection() {
               Secure sample review available via encrypted portal after BAA execution.
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button className="shadow-md">
-                Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
+              <Button className="shadow-md" asChild>
+                <Link href="/contact">
+                  Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
-              <Button variant="outline">
-                Request BAA Template
+              <Button variant="outline" asChild>
+                <Link href="/compliance">Request BAA Template</Link>
               </Button>
             </div>
           </CardHeader>

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart3, Sparkles } from "lucide-react";
@@ -268,28 +269,34 @@ export default function HeroSection() {
             className="flex flex-wrap justify-center gap-4 lg:justify-start"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="rounded-2xl px-8 py-6 text-base font-semibold shadow-2xl group relative overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  animate={
-                    allowContinuousMotion ? { x: ["-200%", "200%"] } : undefined
-                  }
-                  transition={
-                    allowContinuousMotion
-                      ? { duration: 3, repeat: Infinity, ease: "linear" }
-                      : undefined
-                  }
-                />
-                <span className="relative">Get a Free Consultation</span>
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform relative" />
+              <Button
+                asChild
+                className="rounded-2xl px-8 py-6 text-base font-semibold shadow-2xl group relative overflow-hidden"
+              >
+                <Link href="/contact">
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    animate={
+                      allowContinuousMotion ? { x: ["-200%", "200%"] } : undefined
+                    }
+                    transition={
+                      allowContinuousMotion
+                        ? { duration: 3, repeat: Infinity, ease: "linear" }
+                        : undefined
+                    }
+                  />
+                  <span className="relative">Get a Free Consultation</span>
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform relative" />
+                </Link>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
+                asChild
                 className="rounded-2xl border border-white/30 bg-white/10 text-white hover:border-white/50 hover:bg-white/15 hover:text-white px-8 py-6 text-base font-semibold shadow-lg transition-all"
               >
-                Book a Call
+                <Link href="/contact">Book a Call</Link>
               </Button>
             </motion.div>
           </motion.div>
