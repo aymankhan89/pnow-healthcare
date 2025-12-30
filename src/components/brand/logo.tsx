@@ -24,8 +24,8 @@ export function Logo({ className, variant = "mark", tone = "brand" }: LogoProps)
             y2="23.5"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#2563EB" />
-            <stop offset="1" stopColor="#0891B2" />
+            <stop stopColor="#22c55e" />
+            <stop offset="1" stopColor="#10b981" />
           </linearGradient>
           <linearGradient
             id="logoWordGradient"
@@ -35,8 +35,8 @@ export function Logo({ className, variant = "mark", tone = "brand" }: LogoProps)
             y2="15"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#2563EB" />
-            <stop offset="1" stopColor="#0891B2" />
+            <stop stopColor="#22c55e" />
+            <stop offset="1" stopColor="#10b981" />
           </linearGradient>
           <linearGradient
             id="logoTaglineGradient"
@@ -46,8 +46,8 @@ export function Logo({ className, variant = "mark", tone = "brand" }: LogoProps)
             y2="39.5"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#2563EB" />
-            <stop offset="1" stopColor="#0891B2" />
+            <stop stopColor="#22c55e" />
+            <stop offset="1" stopColor="#10b981" />
           </linearGradient>
           {tone === "light" && (
             <linearGradient id="logoWhite" x1="0" y1="0" x2="0" y2="1">
@@ -90,8 +90,8 @@ export function Logo({ className, variant = "mark", tone = "brand" }: LogoProps)
           y2="23.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#2563EB" />
-          <stop offset="1" stopColor="#0891B2" />
+          <stop stopColor="#22c55e" />
+          <stop offset="1" stopColor="#10b981" />
         </linearGradient>
       </defs>
       <path

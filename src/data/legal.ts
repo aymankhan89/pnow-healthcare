@@ -166,8 +166,7 @@ export const legalContent: Record<LegalSlug, LegalPageContent> = {
           "For questions about this HIPAA Privacy Policy or our privacy practices, contact:",
           "ProficientNow Health Care",
           "Email: privacy@proficientnow.com",
-          "Phone: +1 (555) 123-4567",
-          "Address: 123 Compliance Way, Suite 200, Chicago, IL 60601",
+          "Address: Sanali Info Park, 1st Floor, A Block, 8-2-120/113, Road No. 2, Banjara Hills, Hyderabad - 500034",
         ],
       },
     ],
@@ -341,8 +340,8 @@ export const legalContent: Record<LegalSlug, LegalPageContent> = {
   disclaimer: {
     badge: "Disclaimer",
     title: "Disclaimer",
-    effectiveDate: "[Add Date]",
-    updatedDate: "[Add Date]",
+    effectiveDate: "01/01/2026",
+    updatedDate: "01/01/2026",
     intro:
       'The information provided on this website by ProficientNow Health Care ("Company," "we," "our," or "us") is for general informational purposes only. By accessing or using this website, you acknowledge and agree to the terms of this Disclaimer.',
     sections: [
@@ -420,9 +419,8 @@ export const legalContent: Record<LegalSlug, LegalPageContent> = {
         paragraphs: [
           "For questions regarding this Disclaimer, please contact:",
           "ProficientNow Health Care",
-          "Email: [Add Email Address]",
-          "Phone: [Add Phone Number]",
-          "Address: [Add Office Address]",
+          "Email: info@pnowhealtcare.com",
+          "Address: Sanali Info Park, 1st Floor, A Block, 8-2-120/113, Road No. 2, Banjara Hills, Hyderabad - 500034",
         ],
       },
     ],

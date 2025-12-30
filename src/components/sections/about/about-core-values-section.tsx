@@ -12,15 +12,15 @@ const fadeIn = {
 
 export function AboutCoreValuesSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-16 text-slate-100 lg:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 py-16 text-white lg:py-24">
       <div className="absolute inset-0">
-        <div className="absolute right-10 top-0 h-72 w-72 rounded-full bg-blue-600/10 blur-[110px]" />
-        <div className="absolute left-10 bottom-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[110px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-30" />
+        <div className="absolute right-10 top-0 h-72 w-72 rounded-full bg-blue-600/20 blur-[110px]" />
+        <div className="absolute left-10 bottom-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-[110px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-20" />
       </div>
 
       <div className="container relative space-y-8">
-        <Badge className="border border-indigo-300/40 bg-indigo-500/15 px-4 py-1 text-indigo-100">
+        <Badge className="border border-white/20 bg-white/10 px-4 py-1 text-white">
           Core Values
         </Badge>
         <div className="grid gap-6 md:grid-cols-3">
@@ -32,10 +32,10 @@ export function AboutCoreValuesSection() {
               whileInView="show"
               transition={{ delay: index * 0.08 }}
             >
-              <Card className="group h-full border-slate-800 bg-slate-900/70 text-slate-100 shadow-xl shadow-blue-500/10 transition-all">
+              <Card className="group h-full border-white/10 bg-white/5 text-slate-100 shadow-2xl shadow-blue-500/20 backdrop-blur">
                 <CardHeader className="space-y-3">
                   <CardTitle className="text-lg">{value.title}</CardTitle>
-                  <CardDescription className="text-slate-200/80">
+                  <CardDescription className="text-blue-100/85">
                     {value.description}
                   </CardDescription>
                 </CardHeader>

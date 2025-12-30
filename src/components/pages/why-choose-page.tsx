@@ -302,9 +302,18 @@ export function WhyChooseUsPage() {
               Tell us about your current volumes, specialties, and systems. We’ll align the right pod, QA cadence, and reporting within 48 hours.
             </p>
             <div className="space-y-2 text-sm text-slate-600">
-              <p>📞 {contactInfo.salesPhone}</p>
-              <p>✉️ {contactInfo.salesEmail}</p>
-              <p>{contactInfo.businessHours}</p>
+              <p className="flex items-center gap-2">
+                <span role="img" aria-label="email">✉️</span>
+                {contactInfo.salesEmail}
+              </p>
+              <p className="flex items-center gap-2">
+                <span role="img" aria-label="clock">⏰</span>
+                {contactInfo.businessHours}
+              </p>
+              <p className="flex items-start gap-2">
+                <span role="img" aria-label="map">📍</span>
+                <span>{contactInfo.address}</span>
+              </p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Button className="animate-pressable" asChild>

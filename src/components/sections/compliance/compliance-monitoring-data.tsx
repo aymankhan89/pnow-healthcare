@@ -14,10 +14,10 @@ export function MonitoringGridCards() {
   return (
     <>
       {monitoringGrid.map((item) => (
-        <Card key={item.title} className="border-slate-800 bg-slate-900/70 text-slate-100 shadow-lg shadow-blue-500/10">
+        <Card key={item.title} className="border-white/10 bg-white/5 text-slate-100 shadow-2xl shadow-blue-500/20 backdrop-blur">
           <CardHeader className="space-y-2">
             <CardTitle className="text-lg">{item.title}</CardTitle>
-            <CardDescription className="text-slate-200/80">{item.description}</CardDescription>
+            <CardDescription className="text-blue-100/85">{item.description}</CardDescription>
           </CardHeader>
         </Card>
       ))}

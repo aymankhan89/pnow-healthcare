@@ -31,6 +31,7 @@ export default function SiteNavbar() {
   const paddingY = `${1 - 0.25 * scrollProgress}rem`;
   const topPadding = `${1 - scrollProgress}rem`;
   const shadowIntensity = 0.1 + 0.15 * scrollProgress;
+  const logoTone = "brand";
 
   return (
     <>
@@ -74,6 +75,7 @@ export default function SiteNavbar() {
               <div className="relative">
                 <Logo
                   variant="word"
+                  tone={logoTone}
                   className="relative h-8 w-auto sm:h-9"
                 />
               </div>

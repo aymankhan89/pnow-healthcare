@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-import { Linkedin, Mail, PhoneCall } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 const XIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -45,11 +45,7 @@ export const footerColumns = [
 
 export const contactItems = [
   {
-    label: "(800) 555-9082",
-    icon: PhoneCall,
-  },
-  {
-    label: "hello@pnowhealth.com",
+    label: "info@pnowhealtcare.com",
     icon: Mail,
   },
 ] as const;
