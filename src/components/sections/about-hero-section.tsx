@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Sparkles, UsersRound } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -42,15 +43,18 @@ export function AboutHeroSection() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <Button className="rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 px-7 py-5 text-base font-semibold shadow-2xl shadow-blue-500/50">
-              Meet the leaders
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button className="rounded-2xl px-7 py-5 text-base font-semibold shadow-lg" asChild>
+              <Link href="/about">
+                Meet the leaders
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
             <Button
               variant="outline"
-              className="rounded-2xl border-2 border-blue-400/50 bg-white/5 px-7 py-5 text-base text-white backdrop-blur-xl hover:bg-white/10"
+              asChild
+              className="rounded-2xl border border-white/40 bg-white/10 text-white hover:bg-white/20 px-7 py-5 text-base font-semibold shadow-lg backdrop-blur-xl transition-colors"
             >
-              View certifications
+              <Link href="/about">View certifications</Link>
             </Button>
           </div>
 

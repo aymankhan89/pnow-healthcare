@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 import animate from "tailwindcss-animate";
 
 const config = {
@@ -62,6 +63,9 @@ const config = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        blue: colors.emerald,
+        cyan: colors.lime,
+        purple: colors.teal,
       },
       borderRadius: {
         lg: "var(--radius)",

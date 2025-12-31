@@ -29,7 +29,7 @@ export const trustReasons = [
   {
     title: "Rapid Turnaround Time",
     description:
-      "24–48 hour standard turnaround with flexible scaling to meet surge demands and maintain consistent cash flow.",
+      "12-24 hour standard turnaround with flexible scaling to meet surge demands and maintain consistent cash flow.",
     icon: TimerReset,
   },
   {

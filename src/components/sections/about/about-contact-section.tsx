@@ -69,7 +69,7 @@ export function AboutContactSection() {
       setFeedback({
         type: "success",
         message:
-          "Thanks for reaching out. Our team will reply within one business day.",
+          "We appreciate you reaching out. A member of our team will review your details and contact you soon to discuss how we can assist you.",
       });
     } catch (error) {
       const message =
@@ -106,9 +106,18 @@ export function AboutContactSection() {
               Prefer to talk now?
             </h3>
             <div className="mt-3 space-y-2 text-sm text-slate-700">
-              <p>📞 {contactInfo.salesPhone}</p>
-              <p>✉️ {contactInfo.salesEmail}</p>
-              <p>{contactInfo.businessHours}</p>
+              <p className="flex items-center gap-2">
+                <span role="img" aria-label="email">✉️</span>
+                {contactInfo.salesEmail}
+              </p>
+              <p className="flex items-center gap-2">
+                <span role="img" aria-label="clock">⏰</span>
+                {contactInfo.businessHours}
+              </p>
+              <p className="flex items-start gap-2">
+                <span role="img" aria-label="map">📍</span>
+                <span>{contactInfo.address}</span>
+              </p>
             </div>
           </div>
         </motion.div>
@@ -184,11 +193,7 @@ export function AboutContactSection() {
                   {feedback.message}
                 </p>
               )}
-              <Button
-                className="w-full bg-blue-600 text-white shadow-md hover:bg-blue-700"
-                type="submit"
-                disabled={isSubmitting}
-              >
+              <Button className="w-full shadow-md" type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Submitting..." : "Schedule a call"}
               </Button>
             </form>

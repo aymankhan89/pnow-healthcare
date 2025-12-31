@@ -4,80 +4,91 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 64px;
+  }
 }
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --background: 100 27.3% 97.8%; /* Warm Off-White #F9FBF8 */
+  --foreground: 140 13.8% 21.4%; /* Soft Charcoal #2F3E34 */
 
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card: 100 27.3% 97.8%;
+  --card-foreground: 140 13.8% 21.4%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover: 100 27.3% 97.8%;
+  --popover-foreground: 140 13.8% 21.4%;
 
-  --primary: 238 70% 47%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 89 19.6% 61%; /* Soft Olive Green #9CAF88 */
+  --primary-foreground: 100 27.3% 97.8%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 104 21.6% 80%; /* Sage Green #C7D7C1 */
+  --secondary-foreground: 140 13.8% 21.4%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 134 7.4% 45.3%; /* Olive Grey text #6B7C6F */
+  --muted-foreground: 100 27.3% 97.8%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent: 120 17.2% 94.3%; /* Light Mint Grey #EEF3EE */
+  --accent-foreground: 140 13.8% 21.4%;
 
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 100 27.3% 97.8%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
+  --border: 120 17.2% 84%; /* Light Mint Grey edge */
+  --input: 120 17.2% 84%;
+  --ring: 107 15.6% 53.5%; /* Muted Olive CTA #7E9B76 */
 
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
+  --chart-1: 89 19.6% 61%;  /* primary */
+  --chart-2: 104 21.6% 80%; /* secondary */
+  --chart-3: 134 7.4% 45.3%; /* muted text */
+  --chart-4: 38 54.8% 81.8%; /* warning sand */
+  --chart-5: 104 28.8% 42.9%; /* success */
+
+  --font-geist-sans: system-ui;
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   --radius: 0.75rem;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
+  --background: 140 13.8% 12%;
+  --foreground: 120 20% 92%;
 
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+  --card: 140 13.8% 14%;
+  --card-foreground: 120 20% 92%;
 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 140 13.8% 14%;
+  --popover-foreground: 120 20% 92%;
 
-  --primary: 238 80% 65%;
-  --primary-foreground: 233 47% 14%;
+  --primary: 89 19.6% 61%;
+  --primary-foreground: 140 13.8% 21.4%;
 
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 104 21.6% 40%;
+  --secondary-foreground: 120 20% 92%;
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted: 147 36% 20%;
+  --muted-foreground: 147 36% 80%;
 
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --accent: 120 17.2% 20%;
+  --accent-foreground: 120 20% 92%;
 
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 120 20% 92%;
 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+  --border: 140 13.8% 22%;
+  --input: 140 13.8% 22%;
+  --ring: 107 15.6% 53.5%;
 
-  --chart-1: 220 70% 50%;
-  --chart-2: 160 60% 45%;
-  --chart-3: 30 80% 55%;
-  --chart-4: 280 65% 60%;
-  --chart-5: 340 75% 55%;
+  --chart-1: 89 19.6% 61%;
+  --chart-2: 104 21.6% 80%;
+  --chart-3: 134 7.4% 45.3%;
+  --chart-4: 38 54.8% 81.8%;
+  --chart-5: 104 28.8% 42.9%;
 }
 
 @layer base {

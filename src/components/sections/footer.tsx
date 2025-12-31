@@ -106,7 +106,7 @@ export function SiteFooter() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Logo variant="word" className="h-12 w-auto" />
+                <Logo variant="word" tone="light" className="h-12 w-auto" />
               </motion.div>
             </div>
 
@@ -235,9 +235,7 @@ export function SiteFooter() {
               © {new Date().getFullYear()} PNOW Healthcare. All rights reserved.
               <motion.span
                 animate={
-                  allowContinuousMotion
-                    ? { opacity: [0.5, 1, 0.5] }
-                    : undefined
+                  allowContinuousMotion ? { opacity: [0.5, 1, 0.5] } : undefined
                 }
                 transition={
                   allowContinuousMotion
@@ -247,10 +245,20 @@ export function SiteFooter() {
                 className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-400"
               />
             </motion.p>
-            <div className="flex gap-6">
-              {["Privacy", "Security", "Accessibility"].map((item, i) => (
+            <div className="flex flex-wrap gap-4 sm:gap-6">
+              {[
+                { label: "Disclaimer", href: "/legal/disclaimer" },
+                {
+                  label: "Terms & Conditions",
+                  href: "/legal/terms-and-conditions",
+                },
+                {
+                  label: "Data Security Policy",
+                  href: "/legal/data-security-policy",
+                },
+              ].map((link, i) => (
                 <motion.span
-                  key={item}
+                  key={link.label}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -262,7 +270,7 @@ export function SiteFooter() {
                   }}
                   className="cursor-pointer transition-all"
                 >
-                  {item}
+                  <Link href={link.href}>{link.label}</Link>
                 </motion.span>
               ))}
             </div>

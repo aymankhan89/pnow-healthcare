@@ -29,7 +29,7 @@ export const reasons = [
   {
     title: "Turnaround Time",
     description:
-      "Standard 24–48h turnaround with stat coverage for urgent encounters and weekend work queues.",
+      "Standard 12h turnaround with stat coverage for urgent encounters and weekend work queues.",
     icon: Clock4,
   },
   {
@@ -82,18 +82,22 @@ export const faqs = [
 export const resources = [
   {
     title: "Medical Coding Insights",
-    description: "Quarterly benchmarks on denial trends, specialty accuracy, and payer updates.",
+    description:
+      "Quarterly benchmarks on denial trends, specialty accuracy, and payer updates.",
   },
   {
     title: "Compliance Updates",
-    description: "HIPAA, CMS, and commercial payer rule changes summarized for revenue cycle teams.",
+    description:
+      "HIPAA, CMS, and commercial payer rule changes summarized for revenue cycle teams.",
   },
   {
     title: "Industry Guidelines",
-    description: "Best practices for documentation improvement, audit readiness, and coder education.",
+    description:
+      "Best practices for documentation improvement, audit readiness, and coder education.",
   },
   {
     title: "Blogs & Articles",
-    description: "Actionable tips for scaling coding programs, automation, and analytics adoption.",
+    description:
+      "Actionable tips for scaling coding programs, automation, and analytics adoption.",
   },
 ];

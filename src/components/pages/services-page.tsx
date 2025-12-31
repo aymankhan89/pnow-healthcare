@@ -9,7 +9,7 @@ import {
 
 export function ServicesPage() {
   return (
-    <main className="mt-[50px] text-slate-900">
+    <main className=" text-slate-900">
       <ServicesHeroSection />
       <ServicesMedicalCodingSection />
       <ServicesAllServicesSection />

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AnimatedSection } from "@/components/animations/animated-section";
 import { useMotionPreference } from "@/components/animations/use-motion-preference";
 import { fadeInUp } from "@/components/animations/motion-config";
@@ -323,20 +324,26 @@ export function ProcessSection() {
           viewport={{ once: true }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-6 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-2xl">
-              <span className="relative z-10 flex items-center gap-2">
-                Schedule Your Free Consultation
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
+            <Button
+              className="group relative overflow-hidden px-8 py-6 text-base font-semibold shadow-lg transition-all duration-300 hover:shadow-2xl"
+              asChild
+            >
+              <Link href="/contact">
+                <span className="relative z-10 flex items-center gap-2">
+                  Schedule Your Free Consultation
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </Link>
             </Button>
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               variant="outline"
-              className="border-2 border-slate-600 bg-slate-900/50 px-8 py-6 text-base font-semibold text-slate-200 shadow-md transition-all duration-300 hover:border-cyan-500 hover:bg-slate-800 hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/20"
+              className="border border-white/40 bg-white/10 text-white hover:bg-white/20 px-8 py-6 text-base font-semibold shadow-md backdrop-blur transition-colors duration-300"
+              asChild
             >
-              Request a Custom Proposal
+              <Link href="/contact">Request a Custom Proposal</Link>
             </Button>
           </motion.div>
         </motion.div>

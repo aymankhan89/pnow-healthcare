@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { contactInfo } from "@/data/contact";
+import { preloadCalendly, triggerCalendlyPopup } from "@/lib/calendly";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -58,6 +59,10 @@ export function ContactFormSection() {
     },
   });
 
+  useEffect(() => {
+    preloadCalendly();
+  }, []);
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setFeedback(null);
@@ -80,7 +85,7 @@ export function ContactFormSection() {
       setFeedback({
         type: "success",
         message:
-          "Thanks for reaching out. Our team will reply within one business day.",
+          "We appreciate you reaching out. A member of our team will review your details and contact you soon to discuss how we can assist you.",
       });
     } catch (error) {
       const message =
@@ -105,7 +110,10 @@ export function ContactFormSection() {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="grid gap-4 md:grid-cols-2">
                   <FormField
                     control={form.control}
@@ -169,7 +177,7 @@ export function ContactFormSection() {
                       <FormControl>
                         <Input
                           type="tel"
-                          placeholder="(555) 123-4567"
+                          placeholder="Your phone (optional)"
                           autoComplete="tel"
                           {...field}
                         />
@@ -210,7 +218,7 @@ export function ContactFormSection() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700"
+                  className="w-full"
                 >
                   {isSubmitting
                     ? "Submitting..."
@@ -237,34 +245,32 @@ export function ContactFormSection() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2 text-sm text-slate-600">
-            <p>📞 {contactInfo.salesPhone}</p>
-            <p>✉️ {contactInfo.salesEmail}</p>
-            <p>{contactInfo.businessHours}</p>
+            <p className="flex items-center gap-2">
+              <span role="img" aria-label="email">✉️</span>
+              {contactInfo.salesEmail}
+            </p>
+            <p className="flex items-center gap-2">
+              <span role="img" aria-label="clock">⏰</span>
+              {contactInfo.businessHours}
+            </p>
+            <p className="flex items-start gap-2">
+              <span role="img" aria-label="map">📍</span>
+              <span>{contactInfo.address}</span>
+            </p>
           </CardContent>
         </Card>
-        <Card className="border-slate-200 bg-white">
-          <CardHeader>
-            <CardTitle>{contactInfo.office.name}</CardTitle>
-            <CardDescription className="text-slate-600">
-              Office (by appointment)
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-sm text-slate-600">
-            {contactInfo.office.address.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </CardContent>
-        </Card>
+        
         <Card className="border-slate-200 bg-gradient-to-br from-white to-blue-50">
           <CardHeader>
             <CardTitle>Free Consultation</CardTitle>
             <CardDescription className="text-slate-600">
-              Tell us about your volumes, specialties, and technology stack.
-              We’ll send a tailored ramp plan within 48 hours.
+              Tell us about your volumes, specialties, and current setup. We’ll
+              evaluate your needs and walk you through a clear, practical path
+              forward.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button className="w-full animate-pressable">
+            <Button className="w-full animate-pressable" type="button" onClick={() => triggerCalendlyPopup()}>
               Book Time with Sales
             </Button>
           </CardContent>

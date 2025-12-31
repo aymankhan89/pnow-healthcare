@@ -72,7 +72,7 @@ export const complianceRules = [
 export const baaSteps = [
   {
     title: "BAA Negotiation & Review",
-    description: "Collaborative review of agreement terms tailored to your requirements.",
+    description: "Collaborative review of agreement terms aligned to your requirements.",
   },
   {
     title: "Legal Execution",

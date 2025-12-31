@@ -21,7 +21,7 @@ export const leadershipTeam = [
   {
     name: "Priya Narain, MBA",
     role: "Client Success & Strategy",
-    bio: "Partners with health systems to design dedicated team models, SLAs, and reporting cadences tailored to their revenue goals.",
+    bio: "Partners with health systems to design dedicated team models, SLAs, and reporting cadences aligned to their revenue goals.",
   },
 ];
 

@@ -40,7 +40,7 @@ export const securityColumns = [
       "Performance scorecards",
     ],
     stat: {
-      value: "24–48h",
+      value: "12h",
       label: "Turnaround Time",
       sublabel: "Fast processing without compromise",
     },

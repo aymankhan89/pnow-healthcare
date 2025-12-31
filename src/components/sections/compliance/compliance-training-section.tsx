@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { GraduationCap } from "lucide-react";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { trainingItems } from "@/data/compliance";
@@ -20,11 +21,15 @@ export function ComplianceTrainingSection() {
           initial="hidden"
           whileInView="show"
         >
-          <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-cyan-50" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="rounded-full bg-blue-500/10 p-6">
-              <GraduationCap className="h-14 w-14 text-blue-700" />
-            </div>
+          <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-cyan-50 relative">
+            <Image
+              src="/security-shield.png"
+              alt="Workforce training and confidentiality"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 560px, 100vw"
+              priority
+            />
           </div>
         </motion.div>
         <div className="space-y-6">

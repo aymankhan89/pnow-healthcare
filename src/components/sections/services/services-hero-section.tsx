@@ -1,23 +1,76 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { useMotionPreference } from "@/components/animations/use-motion-preference";
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+const highlights = [
+  "Credentialed CPC/COC coders",
+  "Audit-ready documentation",
+  "Payer-specific expertise",
+];
+
+const stats = [
+  { label: "Accuracy", value: "99.8%", helper: "QA verified" },
+  { label: "Turnaround", value: "12 hrs", helper: "On priority queues" },
+  { label: "Appeal lift", value: "+25%", helper: "Denial defense" },
+];
+
 export function ServicesHeroSection() {
+  const { allowContinuousMotion } = useMotionPreference();
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        <div className="absolute -right-10 top-0 h-80 w-80 rounded-full bg-blue-500/30 blur-[120px]" />
-        <div className="absolute left-0 bottom-0 h-72 w-72 rounded-full bg-cyan-500/25 blur-[110px]" />
-        {/* Subtle background illustration */}
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+        <motion.div
+          className="absolute -right-10 top-0 h-96 w-96 rounded-full bg-blue-500/30 blur-[140px]"
+          animate={
+            allowContinuousMotion
+              ? { scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }
+              : undefined
+          }
+          transition={
+            allowContinuousMotion
+              ? { duration: 10, repeat: Infinity, ease: "easeInOut" }
+              : undefined
+          }
+        />
+        <motion.div
+          className="absolute left-0 bottom-0 h-80 w-80 rounded-full bg-cyan-400/25 blur-[120px]"
+          animate={
+            allowContinuousMotion
+              ? { scale: [1, 1.2, 1], opacity: [0.2, 0.45, 0.2] }
+              : undefined
+          }
+          transition={
+            allowContinuousMotion
+              ? { duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }
+              : undefined
+          }
+        />
+        <motion.div
+          className="absolute right-1/3 top-1/2 h-72 w-72 rounded-full bg-purple-500/25 blur-[110px]"
+          animate={
+            allowContinuousMotion
+              ? { scale: [1, 1.3, 1], opacity: [0.15, 0.35, 0.15] }
+              : undefined
+          }
+          transition={
+            allowContinuousMotion
+              ? { duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }
+              : undefined
+          }
+        />
         <div className="absolute bottom-10 right-10 opacity-10">
           <Image
             src="/healthcare-team.svg"
@@ -28,34 +81,157 @@ export function ServicesHeroSection() {
           />
         </div>
       </div>
-      <div className="container relative space-y-6 pt-20 pb-16 lg:pt-32 lg:pb-24">
-        <Badge variant="secondary" className="bg-white/10 text-white border-white/20">Services</Badge>
-        <motion.h1
-          className="text-4xl font-semibold md:text-5xl"
-          initial={fade.hidden}
-          animate={fade.show}
-        >
-          Comprehensive medical coding solutions engineered for compliant,
-          predictable revenue.
-        </motion.h1>
-        <motion.p
-          className="text-lg text-blue-100/80 lg:max-w-4xl"
-          initial={fade.hidden}
-          animate={fade.show}
-          transition={{ delay: 0.1 }}
-        >
-          Every engagement includes credentialed coders, rigorous QA,
-          payer-aware workflows, and dashboards that show exactly how our work
-          elevates accuracy, compliance, and cash flow.
-        </motion.p>
-        <div className="flex flex-wrap gap-3">
-          <Button className="animate-pressable bg-blue-500 px-7 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/30">
-            Discuss Your Coding Needs
-          </Button>
-          <Button variant="outline" className="animate-pressable border-2 border-blue-300/60 bg-white/5 px-7 py-4 text-base text-white backdrop-blur hover:bg-white/10">
-            Download Service Overview
-          </Button>
+
+      <div className="container relative grid gap-12 pt-[70px] pb-20 lg:grid-cols-[1.2fr,0.8fr] lg:items-center lg:pt-32 lg:pb-28">
+        <div className="space-y-7">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-white/5 px-4 py-2 text-sm font-medium text-blue-100 backdrop-blur"
+          >
+            <Sparkles className="h-4 w-4 text-blue-200" />
+            Services built like our specialty pages
+          </motion.div>
+
+          <motion.h1
+            className="text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
+            initial={fade.hidden}
+            animate={fade.show}
+            style={{
+              background: "linear-gradient(to bottom right, #fff, #93c5fd)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Comprehensive coding programs that mirror the depth of every service
+            we deliver.
+          </motion.h1>
+
+          <motion.p
+            className="text-lg text-blue-100/90 lg:max-w-3xl leading-relaxed"
+            initial={fade.hidden}
+            animate={fade.show}
+            transition={{ delay: 0.1 }}
+          >
+            The same rigor you see on our service detail pages—credentialed
+            teams, QA-backed workflows, and transparent reporting—now anchors
+            the Services overview so you can gauge fit at a glance.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-wrap gap-3"
+            initial={fade.hidden}
+            animate={fade.show}
+            transition={{ delay: 0.15 }}
+          >
+            {highlights.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-blue-50 backdrop-blur-sm"
+              >
+                <CheckCircle2 className="h-4 w-4 text-green-300" />
+                {item}
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="flex flex-wrap gap-4 pt-2"
+            initial={fade.hidden}
+            animate={fade.show}
+            transition={{ delay: 0.2 }}
+          >
+            <Button
+              className="group relative overflow-hidden px-7 py-4 text-base font-semibold shadow-2xl shadow-blue-500/40"
+              asChild
+            >
+              <Link href="/contact">
+                <span className="relative z-10 flex items-center gap-2">
+                  Discuss Your Coding Needs
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 transition-opacity group-hover:opacity-100" />
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              asChild
+              className="border border-white/30 bg-white/10 px-7 py-4 text-base font-semibold text-white shadow-xl backdrop-blur transition hover:border-white/50 hover:bg-white/15 hover:text-white"
+            >
+              <Link href="/services">Download Service Overview</Link>
+            </Button>
+          </motion.div>
         </div>
+
+        <motion.div
+          className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-8 shadow-2xl backdrop-blur-xl"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10" />
+          <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-cyan-400/10 blur-3xl" />
+
+          <div className="relative space-y-6">
+            <div className="flex items-center gap-3">
+              <Badge variant="secondary" className="bg-white/15 text-white border-white/20">
+                Services Snapshot
+              </Badge>
+              <div className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400" />
+            </div>
+
+            <div className="grid grid-cols-3 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="group rounded-2xl border border-white/10 bg-white/5 p-4 text-center shadow-sm transition-all hover:scale-[1.02] hover:border-white/25"
+                >
+                  <p className="text-xs font-medium text-blue-100/80">{stat.label}</p>
+                  <p className="mt-2 text-2xl font-bold text-white">{stat.value}</p>
+                  <p className="text-xs text-blue-100/70">{stat.helper}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
+              <p className="text-sm font-semibold text-blue-50">
+                What to expect on every engagement
+              </p>
+              <ul className="space-y-2 text-sm text-blue-100/85">
+                <li className="flex items-center gap-2">
+                  <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                  Dedicated team calibrated to your specialties
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                  Daily QA with transparent reporting and dashboards
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400" />
+                  Payer-aware edits that mirror your subpage-level detail
+                </li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Wave divider to mirror service detail pages */}
+      <div className="absolute bottom-[-1px] left-0 right-0">
+        <svg
+          className="w-full"
+          viewBox="0 0 1440 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0L60 8.33C120 16.7 240 33.3 360 41.7C480 50 600 50 720 45C840 40 960 30 1080 28.3C1200 26.7 1320 33.3 1380 36.7L1440 40V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V0Z"
+            fill="white"
+          />
+        </svg>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { baaSteps } from "@/data/compliance";
@@ -14,15 +15,15 @@ export function ComplianceBaaSection() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.45 } }}
         >
-          <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-blue-50" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="rounded-full bg-blue-500/10 p-6">
-              <svg viewBox="0 0 24 24" className="h-14 w-14 text-blue-700" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M12 12v6" />
-                <path d="M9 12V9a3 3 0 1 1 6 0v3" />
-                <rect x="5" y="12" width="14" height="8" rx="2" />
-              </svg>
-            </div>
+          <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-blue-50 relative">
+            <Image
+              src="/medical-officecoding.png"
+              alt="Business Associate Agreement execution"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 520px, 100vw"
+              priority
+            />
           </div>
         </motion.div>
         <div className="space-y-6">

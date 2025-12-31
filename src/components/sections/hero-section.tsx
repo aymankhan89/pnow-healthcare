@@ -2,11 +2,13 @@
 
 import { useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BarChart3, Sparkles } from "lucide-react";
 import { heroStats, heroMetrics, floatingIcons } from "@/data/hero";
 import { useMotionPreference } from "@/components/animations/use-motion-preference";
+import { preloadCalendly, triggerCalendlyPopup } from "@/lib/calendly";
 
 const heroParticles = [
   { left: "8%", top: "18%", duration: 3.6, delay: 0.1 },
@@ -36,6 +38,11 @@ export default function HeroSection() {
     useMotionPreference();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
+  useEffect(() => {
+    // Preload Calendly so the first click opens instantly.
+    preloadCalendly();
+  }, []);
 
   const floatingIconOffsets = [
     {
@@ -268,9 +275,16 @@ export default function HeroSection() {
             className="flex flex-wrap justify-center gap-4 lg:justify-start"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] px-8 py-6 text-base text-white shadow-2xl shadow-blue-500/50 hover:shadow-blue-500/70 border border-blue-400/30 font-semibold group relative overflow-hidden">
+              <Button
+                type="button"
+                onClick={() => {
+                  console.log("Hero CTA clicked: opening Calendly popup");
+                  triggerCalendlyPopup();
+                }}
+                className="rounded-2xl px-8 py-6 text-base font-semibold shadow-2xl group relative overflow-hidden"
+              >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
                   animate={
                     allowContinuousMotion ? { x: ["-200%", "200%"] } : undefined
                   }
@@ -280,16 +294,19 @@ export default function HeroSection() {
                       : undefined
                   }
                 />
-                <span className="relative">Get a Free Consultation</span>
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform relative" />
+                <span className="relative flex items-center">
+                  Get a Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform relative" />
+                </span>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
-                className="rounded-2xl border-2 border-blue-400/50 bg-white/5 backdrop-blur-xl px-8 py-6 text-base text-white shadow-xl hover:bg-white/10 hover:border-blue-400 transition-all font-semibold"
+                asChild
+                className="rounded-2xl border border-white/30 bg-white/10 text-white hover:border-white/50 hover:bg-white/15 hover:text-white px-8 py-6 text-base font-semibold shadow-lg transition-all"
               >
-                Book a Call
+                <Link href="/contact">Book a Call</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -298,7 +315,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 gap-4 rounded-3xl border border-blue-400/30 bg-white/5 backdrop-blur-2xl p-6 shadow-2xl md:grid-cols-4"
+            className="grid grid-cols-2 gap-4 rounded-3xl border border-blue-400/30 bg-white/5 backdrop-blur-2xl p-6 shadow-2xl md:grid-cols-3"
           >
             {heroStats.map((stat, i) => (
               <motion.div
@@ -368,17 +385,7 @@ export default function HeroSection() {
           />
 
           <div className="flex items-start gap-4 relative z-10">
-            <motion.div
-              className="rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 p-4 text-blue-300 backdrop-blur-xl border border-blue-400/30"
-              animate={
-                allowContinuousMotion ? { rotate: [0, 5, 0, -5, 0] } : undefined
-              }
-              transition={
-                allowContinuousMotion
-                  ? { duration: 5, repeat: Infinity }
-                  : undefined
-              }
-            >
+            <motion.div className="rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/30 p-4 text-blue-300 backdrop-blur-xl border border-blue-400/30">
               <BarChart3 className="h-7 w-7" />
             </motion.div>
             <div>
@@ -410,21 +417,7 @@ export default function HeroSection() {
                   <div className="text-xs uppercase tracking-widest text-cyan-300/70 font-semibold">
                     {metric.label}
                   </div>
-                  <motion.div
-                    className="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mt-2"
-                    animate={
-                      allowContinuousMotion ? { scale: [1, 1.02, 1] } : undefined
-                    }
-                    transition={
-                      allowContinuousMotion
-                        ? {
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.3,
-                          }
-                        : undefined
-                    }
-                  >
+                  <motion.div className="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mt-2">
                     {metric.value}
                   </motion.div>
                   <p className="text-sm text-blue-200/70 mt-1">

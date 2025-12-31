@@ -102,8 +102,7 @@ export function ServicesSection() {
             viewport={{ once: true }}
           >
             Comprehensive Healthcare Services Built for{" "}
-            <span className="relative inline-block">
-              Precision
+            <span className="relative inline-block text-blue-700">
               <motion.span
                 className="absolute -bottom-2 left-0 h-1 w-full bg-gradient-to-r from-blue-500 to-purple-500"
                 initial={{ scaleX: 0 }}
@@ -111,6 +110,7 @@ export function ServicesSection() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
               />
+              Precision
             </span>
           </motion.h2>
 

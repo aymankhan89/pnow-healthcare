@@ -10,7 +10,8 @@ type MotionPreference = {
 };
 
 export function useMotionPreference(): MotionPreference {
-  const prefersReducedMotion = useReducedMotion();
+  const rawPrefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = rawPrefersReducedMotion ?? false;
   const [interactiveReady, setInteractiveReady] = useState(false);
 
   useEffect(() => {
