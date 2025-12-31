@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/data/navigation";
@@ -11,6 +12,7 @@ export default function SiteNavbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,16 @@ export default function SiteNavbar() {
   const topPadding = `${1 - scrollProgress}rem`;
   const shadowIntensity = 0.1 + 0.15 * scrollProgress;
   const logoTone = "brand";
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const linkBase =
+    "flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 whitespace-nowrap";
+  const activeClasses = "text-green-700 bg-green-50 border border-green-100 shadow-sm";
+  const inactiveClasses = "text-gray-700 hover:text-blue-600 hover:bg-blue-50";
 
   return (
     <>
@@ -93,7 +105,7 @@ export default function SiteNavbar() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 whitespace-nowrap"
+                      className={`${linkBase} ${isActive(link.href) ? activeClasses : inactiveClasses}`}
                     >
                       {link.label}
                       <ChevronDown className="w-4 h-4" />
@@ -116,7 +128,7 @@ export default function SiteNavbar() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200 whitespace-nowrap"
+                    className={`${linkBase} ${isActive(link.href) ? activeClasses : inactiveClasses}`}
                   >
                     {link.label}
                   </Link>
@@ -136,7 +148,7 @@ export default function SiteNavbar() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200"
+                      className={`${linkBase} px-3 py-2 ${isActive(link.href) ? activeClasses : inactiveClasses}`}
                     >
                       {link.label}
                       <ChevronDown className="w-3 h-3" />
@@ -159,7 +171,7 @@ export default function SiteNavbar() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200"
+                    className={`${linkBase} px-3 py-2 ${isActive(link.href) ? activeClasses : inactiveClasses}`}
                   >
                     {link.label}
                   </Link>
@@ -215,7 +227,7 @@ export default function SiteNavbar() {
                   <div key={link.label}>
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                      className={`flex items-center justify-between px-4 py-3 rounded-lg transition-all ${isActive(link.href) ? activeClasses : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"}`}
                       onClick={(e) => {
                         if (link.children) {
                           e.preventDefault();
