@@ -419,7 +419,7 @@ export const legalContent: Record<LegalSlug, LegalPageContent> = {
         paragraphs: [
           "For questions regarding this Disclaimer, please contact:",
           "ProficientNow Health Care",
-          "Email: info@pnowhealtcare.com",
+          "Email: info@pnowhealthcare.com",
           "Address: Sanali Info Park, 1st Floor, A Block, 8-2-120/113, Road No. 2, Banjara Hills, Hyderabad - 500034",
         ],
       },

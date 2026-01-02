@@ -9,7 +9,7 @@ type ContactFieldConfig = {
 };
 
 export const contactInfo = {
-  salesEmail: "info@pnowhealtcare.com",
+  salesEmail: "info@pnowhealthcare.com",
   businessHours: "Monday–Friday, 8am–7pm CT",
   address: "Sanali Info Park, 1st Floor, A Block, 8-2-120/113, Road No. 2, Banjara Hills, Hyderabad - 500034",
  

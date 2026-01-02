@@ -45,7 +45,7 @@ export const footerColumns = [
 
 export const contactItems = [
   {
-    label: "info@pnowhealtcare.com",
+    label: "info@pnowhealthcare.com",
     icon: Mail,
   },
 ] as const;
