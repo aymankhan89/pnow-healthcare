@@ -233,6 +233,18 @@ export function SiteFooter() {
               className="flex items-center gap-2"
             >
               © {new Date().getFullYear()} PNOW Healthcare. All rights reserved.
+              <span className="text-blue-100/60">•</span>
+              <span className="flex items-center gap-1">
+                Developed and designed by
+                <Link
+                  href="https://aymank-dev.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-cyan-200 hover:text-cyan-100 underline decoration-cyan-400/60 decoration-dashed underline-offset-4 transition-colors"
+                >
+                  Ayman Khan
+                </Link>
+              </span>
               <motion.span
                 animate={
                   allowContinuousMotion ? { opacity: [0.5, 1, 0.5] } : undefined
