@@ -1,3 +1,11 @@
+# ProficientNow Healthcare — Healthcare marketing site
+
+[![preview](https://raw.githubusercontent.com/akhan-pn/3d-portfolio/main/public/images/pnow-healthcare.webp)](https://pnow-healthcare.vercel.app)
+
+**Live →** https://pnow-healthcare.vercel.app
+
+---
+
 # PNOW Healthcare
 
 Modern healthcare marketing site built with Next.js 16 (App Router), TypeScript, Tailwind CSS, and [shadcn/ui](https://ui.shadcn.com). The landing page is pre-styled with motion-rich hero, services highlights, compliance/security messaging, specialty callouts, trust indicators, and a contact CTA wired to Airtable.
